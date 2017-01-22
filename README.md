@@ -1,3 +1,3 @@
-# Dockerfiles
+# Docker Hugo
 
-Various dockerfiles.
+Hugo docker image.
