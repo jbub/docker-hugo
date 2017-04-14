@@ -1,7 +1,7 @@
 FROM alpine:latest
 MAINTAINER Juraj Bubniak <contact@jbub.eu>
 
-ENV HUGO_VERSION=0.20
+ENV HUGO_VERSION=0.20.1
 
 RUN apk --no-cache add wget ca-certificates && \
   cd /tmp/ && \
