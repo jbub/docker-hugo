@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER Juraj Bubniak <contact@jbub.eu>
+MAINTAINER Juraj Bubniak <juraj.bubniak@gmail.com>
 
 ENV HUGO_VERSION=0.18.1
 
