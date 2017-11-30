@@ -1,7 +1,8 @@
+
 FROM alpine:latest
 MAINTAINER Juraj Bubniak <juraj.bubniak@gmail.com>
 
-ENV HUGO_VERSION=0.20.7
+ENV HUGO_VERSION=0.29
 
 RUN apk --no-cache add wget ca-certificates && \
   cd /tmp/ && \
@@ -11,5 +12,6 @@ RUN apk --no-cache add wget ca-certificates && \
   rm hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
   mv hugo /usr/bin/hugo && \
   apk del wget ca-certificates
-
-ENTRYPOINT [ "hugo" ]
+  
+ ENTRYPOINT [ "hugo" ]
+ 
