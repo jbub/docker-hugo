@@ -15,4 +15,3 @@ RUN apk --no-cache add wget ca-certificates && \
   
  ENTRYPOINT [ "hugo" ]
  
- 
