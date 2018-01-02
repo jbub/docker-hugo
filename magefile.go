@@ -36,11 +36,10 @@ var versions = []versionInfo{
 	{Name: "0.29", Version: "0.29", Image: "alpine:latest", Maintainer: maintainer},
 	{Name: "0.30", Version: "0.30.2", Image: "alpine:latest", Maintainer: maintainer},
 	{Name: "0.31", Version: "0.31.1", Image: "alpine:latest", Maintainer: maintainer},
-	{Name: "0.32", Version: "0.32", Image: "alpine:latest", Maintainer: maintainer},
+	{Name: "0.32", Version: "0.32.1", Image: "alpine:latest", Maintainer: maintainer},
 }
 
-var dockerfileTmplString = `
-FROM {{ .Image }}
+var dockerfileTmplString = `FROM {{ .Image }}
 MAINTAINER {{ .Maintainer }}
 
 ENV HUGO_VERSION={{ .Version }}
@@ -49,13 +48,11 @@ RUN apk --no-cache add wget ca-certificates && \
   cd /tmp/ && \
   wget https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
   tar xzf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
-  ls -la && \
   rm hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
   mv hugo /usr/bin/hugo && \
   apk del wget ca-certificates
-  
- ENTRYPOINT [ "hugo" ]
- `
+
+ENTRYPOINT [ "hugo" ]`
 
 var dockerfileTmpl = template.Must(template.New("dockerfile").Parse(dockerfileTmplString))
 
