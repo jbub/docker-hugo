@@ -52,7 +52,7 @@ RUN apk --no-cache add wget ca-certificates && \
   mv hugo /usr/bin/hugo && \
   apk del wget ca-certificates
 
-ENTRYPOINT [ "hugo" ]`
+ENTRYPOINT ["/usr/bin/hugo"]`
 
 var dockerfileTmpl = template.Must(template.New("dockerfile").Parse(dockerfileTmplString))
 
@@ -142,7 +142,7 @@ func buildAndRunDocker(dir string, info versionInfo, latest bool) error {
 
 func genDockerfile(dir string, info versionInfo) error {
 	fpath := filepath.Join(dir, "Dockerfile")
-	fp, err := os.OpenFile(fpath, os.O_CREATE|os.O_WRONLY, os.ModePerm)
+	fp, err := os.OpenFile(fpath, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, os.ModePerm)
 	if err != nil {
 		return fmt.Errorf("could not open file: %v", err)
 	}
