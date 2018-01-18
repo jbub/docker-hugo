@@ -20,7 +20,7 @@ const (
 
 type versionInfo struct {
 	Name       string
-	Image      string
+	BaseImage  string
 	Version    string
 	Maintainer string
 }
@@ -33,15 +33,15 @@ func (v versionInfo) tag(latest bool) string {
 }
 
 var versions = []versionInfo{
-	{Name: "0.28", Version: "0.28", Image: dockerBaseImage, Maintainer: dockerMaintainer},
-	{Name: "0.29", Version: "0.29", Image: dockerBaseImage, Maintainer: dockerMaintainer},
-	{Name: "0.30", Version: "0.30.2", Image: dockerBaseImage, Maintainer: dockerMaintainer},
-	{Name: "0.31", Version: "0.31.1", Image: dockerBaseImage, Maintainer: dockerMaintainer},
-	{Name: "0.32", Version: "0.32.4", Image: dockerBaseImage, Maintainer: dockerMaintainer},
-	{Name: "0.33", Version: "0.33", Image: dockerBaseImage, Maintainer: dockerMaintainer},
+	{Name: "0.28", Version: "0.28", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
+	{Name: "0.29", Version: "0.29", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
+	{Name: "0.30", Version: "0.30.2", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
+	{Name: "0.31", Version: "0.31.1", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
+	{Name: "0.32", Version: "0.32.4", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
+	{Name: "0.33", Version: "0.33", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
 }
 
-var dockerfileTmplString = `FROM {{ .Image }}
+var dockerfileTmplString = `FROM {{ .BaseImage }}
 MAINTAINER {{ .Maintainer }}
 
 ENV HUGO_VERSION={{ .Version }}
