@@ -41,7 +41,7 @@ var versions = []versionInfo{
 	{Name: "0.33", Version: "0.33", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
 	{Name: "0.34", Version: "0.34", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
 	{Name: "0.35", Version: "0.35", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
-	{Name: "0.36", Version: "0.36", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
+	{Name: "0.36", Version: "0.36.1", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
 }
 
 var dockerfileTmplString = `FROM {{ .BaseImage }}
