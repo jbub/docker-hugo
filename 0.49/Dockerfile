@@ -1,7 +1,7 @@
 FROM alpine:latest
 LABEL maintainer="Juraj Bubniak <juraj.bubniak@gmail.com>"
 
-ENV HUGO_VERSION=0.39
+ENV HUGO_VERSION=0.49.2
 
 RUN apk --no-cache add wget ca-certificates && \
   cd /tmp && \

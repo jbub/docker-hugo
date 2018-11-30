@@ -54,16 +54,20 @@ var versions = []versionInfo{
 	{Name: "0.46", Version: "0.46", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
 	{Name: "0.47", Version: "0.47.1", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
 	{Name: "0.48", Version: "0.48", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
+	{Name: "0.49", Version: "0.49.2", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
+	{Name: "0.50", Version: "0.50", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
+	{Name: "0.51", Version: "0.51", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
+	{Name: "0.52", Version: "0.52", BaseImage: dockerBaseImage, Maintainer: dockerMaintainer},
 }
 
 var dockerfileTmplString = `FROM {{ .BaseImage }}
-MAINTAINER {{ .Maintainer }}
+LABEL maintainer="{{ .Maintainer }}"
 
 ENV HUGO_VERSION={{ .Version }}
 
 RUN apk --no-cache add wget ca-certificates && \
   cd /tmp && \
-  wget https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
+  wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
   tar xzf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
   rm hugo_${HUGO_VERSION}_Linux-64bit.tar.gz && \
   mv hugo /usr/bin/hugo && \
