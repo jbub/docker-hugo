@@ -14,7 +14,7 @@ import (
 
 const (
 	dockerImage      = "jbub/docker-hugo"
-	dockerBaseImage  = "alpine:latest"
+	dockerBaseImage  = "alpine:3.9"
 	dockerMaintainer = "Juraj Bubniak <juraj.bubniak@gmail.com>"
 )
 

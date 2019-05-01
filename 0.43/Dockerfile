@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.9
 LABEL maintainer="Juraj Bubniak <juraj.bubniak@gmail.com>"
 
 ENV HUGO_VERSION=0.43
